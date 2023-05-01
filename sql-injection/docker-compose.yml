@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+    php:
+        container_name: php_sql-injection
+        build: ./php
+        volumes: 
+            - ./html:/var/www/html
+        ports:
+            - 8080:80
+    mysql:
+        container_name: mysql_sql-injection
+        image: mysql:8.0
+        volumes:
+            - ./mysql/initdb.d:/docker-entrypoint-initdb.d
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_DATABASE=sql-injection
+            - MYSQL_USER=user
+            - MYSQL_PASSWORD=user025pass
+
