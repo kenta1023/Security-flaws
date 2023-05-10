@@ -1,5 +1,5 @@
 # Security-flaws
-webの有名脆弱性を集める。CTF等への学習用。
+webの有名脆弱性を集める。CTF等への学習用。少しずつ追加予定。
 
 ## sql-injectionl
 ポート：8080
