@@ -1,0 +1,52 @@
+html{
+    height: 100%;
+}
+
+body{
+    color: white;
+    background-color: gray;
+    font-size: 200%;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.box-form{
+    display: flexbox;
+    background-color: black;
+    padding: 50px;
+    width: 550px;
+    height: auto;
+    text-align: center;
+}
+.box-form input{
+    width:450px;
+    height:75px;
+    font-size: 100%;
+    margin: 30px;
+    border-radius: 10px;
+}
+
+.box-form .submit-btn{
+    background-color: chartreuse;
+}
+.box-form p{
+    font-size: 75%;
+    color: whitesmoke;
+}
+p#input{
+    width:450px;
+    height:75px;
+    font-size: 125%;
+    margin: auto;
+    border-radius: 10px;
+    color:black;
+    background-color: white;
+    text-align: left;
+
+}
+.box-form a{
+    color: white;
+}

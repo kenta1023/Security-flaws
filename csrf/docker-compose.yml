@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+    php:
+        build: ./php
+        volumes:
+            - ./php:/var/www/html
+        ports:
+            - 8000:80
+        container_name: php_csrf
+    mysql:
+        image: mysql:8.0
+        volumes:
+            - ./mysql/start:/docker-entrypoint-initdb.d
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+            - MYSQL_USER=php1
+            - MYSQL_PASSWORD=pjk-3kjf-Abc
+        container_name: mysql_csrf
