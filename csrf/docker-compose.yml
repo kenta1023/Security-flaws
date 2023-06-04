@@ -6,8 +6,15 @@ services:
         volumes:
             - ./php:/var/www/html
         ports:
-            - 8000:80
+            - 8010:80
         container_name: php_csrf
+    php1:
+        build: ./php_attack
+        volumes:
+            - ./php_attack:/var/www/html
+        ports:
+            - 8011:80
+        container_name: php_csrf_attack
     mysql:
         image: mysql:8.0
         volumes:

